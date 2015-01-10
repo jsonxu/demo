@@ -69,8 +69,10 @@ fis.config.merge({
 //使用pure release命令时，添加--lint或-l参数即可生效
 fis.config.set('settings.lint.jshint.ignored', [ 'lib/**', /jquery|backbone|underscore/i ]);
 
-//开启autoCombine可以将零散资源进行自动打包
+//开始autoCombine可以将零散资源进行自动打包
 fis.config.set('settings.postpackager.simple.autoCombine', true);
+//开启autoReflow使得在关闭autoCombine的情况下，依然会优化脚本与样式资源引用位置
+fis.config.set('settings.postpackager.simple.autoReflow', true);
 
 //配置FIS中使用csssprites
 fis.config.set('modules.spriter', 'csssprites');
