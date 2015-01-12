@@ -1,6 +1,6 @@
 fis.config.set('pack', {
-    'pkg/lib.js': [
-        '/app_js/underscore/**.js',
+    'app_js/lib.js': [
+        '/app_js/**.js',
         '/app_css/backbone/**.js',
         '/app_img/jquery/**.js',
         '/modules/vendor/**.js',
