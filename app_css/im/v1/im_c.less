@@ -1,0 +1,30 @@
+.mod_top_tabs{ 
+	position:relative; width:100%; height:50px;
+	.bottom_line1{ position:absolute; bottom:-1px; left:0; font-size:0; line-height:0; width:100%; height:1px; background:#000; opacity:0.3;filter:alpha(opacity=30);}
+	.bottom_line2{ position:absolute; bottom:-3px; left:0; font-size:0; line-height:0; width:100%; height:2px; background:#000; opacity:0.12;filter:alpha(opacity=12);}
+	.con{ width:980px; position:relative; margin:0 auto;
+		.pager{ position:absolute; right:0; top:7px;}
+		.pager a{ display:inline-block; width:8px; height:13px; background:url("../../../app_img/im/v1/icon_bg.png"); font-size:0; margin-left:10px;}
+		.pager .last{ background-position:-7px -23px;}
+		.pager .next{ background-position:0 -23px;}
+		.pager .lasted{ background-position:-7px -9px; cursor:default;}
+		.pager .nexted{ background-position:0 -9px; cursor:default;}
+	}
+	.tab_box{ 
+		position:relative; width:930px; height:50px; overflow:hidden;
+		ul{ position:absolute; width:99999px;}
+		.item{ position:relative; float:left; width:186px; height:50px; cursor:pointer;}
+		.item .bg1{ position:absolute; display:none; width:100%; height:100%; background:#fff; opacity:.3;filter:alpha(opacity=30); left:0; top:0;font-size:0; line-height:0;}
+		.item .bg2{ position:absolute; display:none; width:100%; height:2px; background:#d64e4e;left:0; bottom:0;font-size:0; line-height:0;}
+		.item .s1{ position:relative; display:block; float:left;margin:10px; width:30px; height:30px;}
+		.item .s1 img{ border-radius:50%; width:30px; height:30px;}
+		.item .s1 i{ position:absolute; bottom:0; right:0; font-size:0; border:1px solid #fff; line-height:0; border-radius:50%; background:#44b779; width:6px; height:6px;}
+		.item .s2{ display:block;float:left; line-height:50px; font-size:13px; color:#fff; opacity:.5;filter:alpha(opacity=50); max-width:100px; _width:100px; white-space:nowrap; text-overflow:ellipsis; overflow:hidden;}
+		.item .s3{ display:block; float:left; margin-left:5px; margin-top:19px; height:12px; background:#fff; color:#ff3c3c; font-size:10px;  border-radius:6px; padding:0 2px; line-height:12px; border:1px solid #ff6969; font-family:tahoma;}
+		.item .close{ position:absolute; display:none; right:5px; top:3px; width:15px; height:12px;font-size:0; line-height:0; background:url("../../../app_img/im/v1/icon_bg.png") 3px 3px;}
+		.on .s2{ opacity:1;filter:alpha(opacity=100);}
+		.on .bg1{ display:block;}
+		.on .bg2{ display:block;}
+		.on .close{ display:block;}
+	}
+}
