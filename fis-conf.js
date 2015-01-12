@@ -111,6 +111,8 @@ fis.config.set('settings.spriter.csssprites', {
 //项目排除掉_xxx.scss，这些属于框架文件，不用关心
 fis.config.set('project.exclude', '**/_*.scss');
 fis.config.set('project.exclude', '**/_*.less');
+fis.config.set('project.exclude', '**/_*.html');
+fis.config.set('project.exclude', '**/_*.tpl');
 
 
 //fis.config.set('project.exclude', '**/g/*.*');
