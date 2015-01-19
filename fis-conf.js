@@ -9,15 +9,24 @@ fis.config.set('pack', {
 });
 
 
+
 fis.config.merge({
     roadmap : {
+        path : [
+            {
+                //所有的PNG文件
+                reg : '**.less',
+                //发布到/static/js/xxx目录下
+                //release : '/app_img/im/v1/$&'
+            }
+        ],
         ext : {
             //less后缀的文件将输出为css后缀
             //并且在parser之后的其他处理流程中被当做css文件处理
             less : 'css',
             //md后缀的文件将输出为html文件
-            //并且在parser之后的其他处理流程中被当做html文件处理
             md : 'html'
+            //并且在parser之后的其他处理流程中被当做html文件处理
         },
         domain : {
             //所有css文件添加http://localhost:8080作为域名
@@ -28,33 +37,7 @@ fis.config.merge({
             '**.jpg' : 'http://img2.pingan.com',
             '**.gif' : 'http://img2.pingan.com',
             '**.png' : 'http://img2.pingan.com'
-        },
-        path : [
-            {
-                //所有的js文件
-                reg : '**.js',
-                //发布到/static/js/xxx目录下
-                release : '/static/app_js$&'
-            },
-            {
-                //所有的css文件
-                reg : '**.html',
-                //发布到/static/css/xxx目录下
-                release : '/static/page$&'
-            },
-            {
-                //所有的css文件
-                reg : '**.css',
-                //发布到/static/css/xxx目录下
-                release : '/static/app_css$&'
-            },
-            {
-                //所有image目录下的.png，.gif文件
-                reg : /^\/app_img\/(.*\.(?:png|gif|.jpg))/i,
-                //发布到/static/pic/xxx目录下
-                release : '/app_img/$1'
-            }
-        ]
+        }
     }
 });
 
@@ -66,6 +49,10 @@ fis.config.set('settings.optimzier.png-compressor.type', 'pngquant');
 //设置jshint插件要排除检查的文件，默认不检查lib、jquery、backbone、underscore等文件
 //使用pure release命令时，添加--lint或-l参数即可生效
 fis.config.set('settings.lint.jshint.ignored', [ 'g/**', /jquery|backbone|underscore/i ]);
+//单文件编译过程中的代码检查插件。
+fis.config.set('modules.lint.js', 'jshint');
+//单文件编译过程中的自动测试插件。
+fis.config.set('modules.test.js', 'phantomjs');
 
 //开始autoCombine可以将零散资源进行自动打包
 fis.config.set('settings.postpackager.simple.autoCombine', true);
@@ -107,14 +94,21 @@ fis.config.set('settings.spriter.csssprites', {
     layout: 'matrix'
 });
 
+//设置sprite图片合并后生成到的路径
+var paths = fis.config.get('roadmap.path') || [];
+paths.unshift({
+    reg: /.*\/(.*_(?:x|y|z)\.png)$/i,
+    release: '/app_img/im/v1/$1'
+});
+
+fis.config.set('roadmap.path', paths);
 
 //项目排除掉_xxx.scss，这些属于框架文件，不用关心
-fis.config.set('project.exclude', '**/_*.scss');
-fis.config.set('project.exclude', '**/_*.less');
-fis.config.set('project.exclude', '/tpl/*.*');
-
-
-//fis.config.set('project.exclude', '**/g/*.*');
+//fis.config.set('project.exclude', '**/_*.scss');
+//fis.config.set('project.exclude', '**/_*.less');
+//fis.config.set('project.exclude', '**/_*.css');
+//fis.config.set('project.exclude', '/tpl/*.*');
+fis.config.set('project.exclude', ['**/_*.less','**/_*.css','/tpl/*.*','**/g/*.*',]);
 //scss后缀的文件，用fis-parser-sass插件编译
 //fis.config.set('modules.parser.scss', 'sass');
 //scss文件产出为css文件
