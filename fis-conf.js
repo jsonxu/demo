@@ -1,9 +1,12 @@
-//设置需要自动打包的文件
+//设置需要自动打包的文件，根据项目实际需要来打包哦
 fis.config.set('pack', {
-    'app_js/im/v1/lib.js': [
-        '/app_js/im/v1/**.js'
+    'app_js/im/v1/im1.js': [
+        '/app_js/im/v1/im_page1/**.js'
     ],
-    'app_css/im/v1/lib.css': [
+    'app_js/im/v1/im2.js': [
+        '/app_js/im/v1/im_page2/**.js'
+    ],
+    'app_css/im/v1/im.css': [
         '/app_css/im/v1/**.less'
     ]
 });
@@ -94,14 +97,55 @@ fis.config.set('settings.spriter.csssprites', {
     layout: 'matrix'
 });
 
-//设置sprite图片合并后生成到的路径
-var paths = fis.config.get('roadmap.path') || [];
-paths.unshift({
-    reg: /.*\/(.*_(?:x|y|z)\.png)$/i,
-    release: '/app_img/im/v1/$1'
+fis.config.merge({
+    deploy : {
+        //使用fis release --dest remote来使用这个配置
+        remote : {
+            //如果配置了receiver，fis会把文件逐个post到接收端上
+            receiver : 'http://www.example.com/path/to/receiver.php',
+            //从产出的结果的static目录下找文件
+            from : '/static',
+            //保存到远端机器的/home/fis/www/static目录下
+            //这个参数会跟随post请求一起发送
+            to : '/home/fis/www/',
+            //通配或正则过滤文件，表示只上传所有的js文件
+            include : '**.js',
+            //widget目录下的那些文件就不要发布了
+            exclude : /\/widget\//i,
+            //支持对文件进行字符串替换
+            replace : {
+                from : 'http://www.online.com',
+                to : 'http://www.offline.com'
+            }
+        },
+        //名字随便取的，没有特殊含义
+        local : {
+            //from参数省略，表示从发布后的根目录开始上传
+            //发布到当前项目的上一级的output目录中
+            to : '../output'
+        },
+        //也可以是一个数组
+        remote2 : [
+            {
+                //将static目录上传到/home/fis/www/webroot下
+                //上传文件路径为/home/fis/www/webroot/static/xxxx
+                receiver : 'http://www.example.com/path/to/receiver.php',
+                from : '/static',
+                to : '/home/fis/www/webroot'
+            },
+            {
+                //将template目录内的文件（不包括template一级）
+                //上传到/home/fis/www/tpl下
+                //上传文件路径为/home/fis/www/tpl/xxxx
+                receiver : 'http://www.example.com/path/to/receiver.php',
+                from : '/template',
+                to : '/home/fis/www/tpl',
+                subOnly : true
+            }
+        ]
+    }
 });
 
-fis.config.set('roadmap.path', paths);
 
 //项目排除掉_xxx.scss，这些属于框架文件，不用关心
 //fis.config.set('project.exclude', '**/_*.scss');
@@ -113,3 +157,12 @@ fis.config.set('project.exclude', ['**/_*.less','**/_*.css','/tpl/*.*','**/g/*.*
 //fis.config.set('modules.parser.scss', 'sass');
 //scss文件产出为css文件
 //fis.config.set('roadmap.ext.scss', 'css');
+
+//设置sprite图片合并后生成到的路径
+var paths = fis.config.get('roadmap.path') || [];
+paths.unshift({
+    reg: /.*\/(.*_(?:x|y|z)\.png)$/i,
+    release: '/app_img/im/v1/$1'
+});
+
+fis.config.set('roadmap.path', paths);

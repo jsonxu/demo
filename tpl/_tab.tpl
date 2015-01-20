@@ -1,4 +1,4 @@
-<!-- mod_top_tabs -->
+	<!-- mod_top_tabs -->
 	<div class="mod_top_tabs">
 		<div class="con">
 			<div class="tab_box">
@@ -7,7 +7,7 @@
 						<span class="bg1"></span>
 						<span class="bg2"></span>
 						<span class="s1">
-							<img src="temp/face1.png" />
+							<img src="../app_img/im/v1/temp/face1.png" />
 							<i></i>
 						</span>
 						<span class="s2">韩都衣舍旗舰店</span>
@@ -18,7 +18,7 @@
 						<span class="bg1"></span>
 						<span class="bg2"></span>
 						<span class="s1">
-							<img src="temp/face1.png" />
+							<img src="../app_img/im/v1/temp/face1.png" />
 							<i></i>
 						</span>
 						<span class="s2">太平鸟男装旗舰店</span>
@@ -29,7 +29,7 @@
 						<span class="bg1"></span>
 						<span class="bg2"></span>
 						<span class="s1">
-							<img src="temp/face1.png" />
+							<img src="../app_img/im/v1/temp/face1.png" />
 							<i></i>
 						</span>
 						<span class="s2">韩都衣舍旗舰店</span>
@@ -40,7 +40,7 @@
 						<span class="bg1"></span>
 						<span class="bg2"></span>
 						<span class="s1">
-							<img src="temp/face1.png" />
+							<img src="../app_img/im/v1/temp/face1.png" />
 							<i></i>
 						</span>
 						<span class="s2">韩都衣舍旗舰店</span>
@@ -51,7 +51,7 @@
 						<span class="bg1"></span>
 						<span class="bg2"></span>
 						<span class="s1">
-							<img src="temp/face1.png" />
+							<img src="../app_img/im/v1/temp/face1.png" />
 							<i></i>
 						</span>
 						<span class="s2">韩都衣舍旗舰店</span>
@@ -62,7 +62,7 @@
 						<span class="bg1"></span>
 						<span class="bg2"></span>
 						<span class="s1">
-							<img src="temp/face1.png" />
+							<img src="../app_img/im/v1/temp/face1.png" />
 							<i></i>
 						</span>
 						<span class="s2">韩都衣舍旗舰店</span>
@@ -73,7 +73,7 @@
 						<span class="bg1"></span>
 						<span class="bg2"></span>
 						<span class="s1">
-							<img src="temp/face1.png" />
+							<img src="../app_img/im/v1/temp/face1.png" />
 							<i></i>
 						</span>
 						<span class="s2">韩都衣舍旗舰店</span>
@@ -84,7 +84,7 @@
 						<span class="bg1"></span>
 						<span class="bg2"></span>
 						<span class="s1">
-							<img src="temp/face1.png" />
+							<img src="../app_img/im/v1/temp/face1.png" />
 							<i></i>
 						</span>
 						<span class="s2">韩都衣舍旗舰店</span>
